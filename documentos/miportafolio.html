@@ -1,0 +1,510 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AM | Mi portafolio personal</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde: #527957;
+            --verde-oscuro: #284b2c;
+            --verde-menu: #dce7d8;
+            --fondo: #7b8d70;
+            --blanco: #edf0e8;
+            --sombra: #34452b30;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--fondo);
+            color: #303a2e;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background-color: var(--verde-menu);
+            padding: 12px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 3px 12px #263b2630;
+        }
+
+        .logo {
+            color: var(--verde-oscuro);
+            font-size: 2.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .enlaces {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .enlaces a {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: bold;
+            padding: 10px 5px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .enlaces a:hover {
+            color: #71916a;
+            transform: translateY(-2px);
+        }
+
+        .contenedor {
+            max-width: 1150px;
+            margin: auto;
+            padding: 105px 25px 30px;
+        }
+
+        .cuadro {
+            background-color: var(--blanco);
+            min-height: 75vh;
+            padding: 45px;
+            margin-bottom: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 16px var(--sombra);
+            scroll-margin-top: 95px;
+        }
+
+        .titulo {
+            font-family: 'Dancing Script', cursive;
+            color: var(--verde);
+            font-size: 3.5rem;
+            text-align: center;
+            margin: 0 0 25px;
+        }
+
+        .subtitulo {
+            color: var(--verde-oscuro);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .cuadro p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 0 0 20px;
+        }
+
+        .seccion-con-imagen {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .texto {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .texto .titulo {
+            text-align: left;
+        }
+
+        .imagen-perfil {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px var(--sombra);
+            transition: transform 0.3s;
+        }
+
+        .imagen-perfil:hover {
+            transform: scale(1.03);
+        }
+
+        .proyecto {
+            background-color: #e3e9dd;
+            border-left: 5px solid var(--verde);
+            border-radius: 12px;
+            padding: 22px 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .proyecto:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 14px var(--sombra);
+        }
+
+        .proyecto h2 {
+            color: var(--verde-oscuro);
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+
+        .proyecto p {
+            margin-bottom: 12px;
+        }
+
+        .proyecto p:last-child {
+            margin-bottom: 0;
+        }
+
+        .datos-contacto {
+            background-color: #e3e9dd;
+            padding: 25px;
+            border-radius: 14px;
+            margin-top: 20px;
+        }
+
+        .datos-contacto p {
+            overflow-wrap: anywhere;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: var(--verde);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 9px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .boton:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .pie-pagina {
+            background-color: #dce7d8;
+            color: var(--verde-oscuro);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 20px;
+            border-top: 4px solid var(--verde);
+        }
+
+        .pie-pagina h2 {
+            font-size: 2.2rem;
+            margin: 0 0 10px;
+        }
+
+        .pie-pagina p {
+            line-height: 1.7;
+            margin: 12px 0;
+        }
+
+        .redes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin: 20px 0;
+        }
+
+        .redes a {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .redes a:hover {
+            text-decoration: underline;
+            color: var(--verde);
+        }
+
+        .creditos {
+            font-size: 0.85rem;
+            color: #526752;
+        }
+
+        @media (max-width: 750px) {
+            .menu {
+                padding: 12px 15px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .enlaces {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 5px 15px;
+            }
+
+            .enlaces a {
+                font-size: 0.95rem;
+                padding: 5px 2px;
+            }
+
+            .contenedor {
+                padding: 140px 12px 20px;
+            }
+
+            .cuadro {
+                padding: 25px 20px;
+                min-height: auto;
+                scroll-margin-top: 135px;
+            }
+
+            .seccion-con-imagen {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 20px;
+            }
+
+            .texto .titulo {
+                text-align: center;
+            }
+
+            .imagen-perfil {
+                width: min(100%, 300px);
+                height: auto;
+                aspect-ratio: 1 / 1;
+                align-self: center;
+            }
+
+            .titulo {
+                font-size: 3rem;
+            }
+
+            .subtitulo {
+                font-size: 1.5rem;
+            }
+
+            .cuadro p {
+                font-size: 16px;
+            }
+
+            .proyecto {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="menu">
+        <a class="logo" href="#inicio">AM ♡</a>
+
+        <div class="enlaces">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="contenedor">
+
+        <section class="cuadro seccion-con-imagen" id="inicio">
+
+            <div class="texto">
+                <h1 class="titulo">Inicio</h1>
+
+                <h2 class="subtitulo">Bienvenido a mi portafolio</h2>
+
+                <p>
+                    Hola, soy Antonella Magri y te doy la bienvenida a mi
+                    portafolio personal. Este espacio fue creado para presentar
+                    una parte de quién soy, mis intereses, mis habilidades y
+                    algunos de los proyectos y trabajos que he realizado durante
+                    mi etapa escolar. A través de este portafolio quiero mostrar
+                    no solamente los resultados de mis trabajos, sino también
+                    el proceso de aprendizaje, la creatividad y el esfuerzo que
+                    hay detrás de cada proyecto.
+                </p>
+            </div>
+
+            <img class="imagen-perfil"
+                 src="../imagenes/inicio.png"
+                 alt="Imagen de presentación de mi portafolio">
+
+        </section>
+
+        <section class="cuadro seccion-con-imagen" id="sobre-mi">
+
+            <div class="texto">
+                <h1 class="titulo">Sobre mí</h1>
+
+                <p>
+                    Mi nombre es Antonella Magri y soy estudiante
+                    de 1.º Año B.T.I. del Colegio Privado Bautista
+                    de Encarnación.
+                </p>
+
+                <p>
+                    Me considero una persona curiosa, creativa y
+                    con muchas ganas de aprender. Me gusta la
+                    tecnología, la informática y el diseño.
+                </p>
+            </div>
+
+            <img class="imagen-perfil"
+                 src="../imagenes/sobremi.png"
+                 alt="Imagen de la sección sobre mí">
+
+        </section>
+
+        <section class="cuadro" id="proyectos">
+
+            <h1 class="titulo">Proyectos</h1>
+
+            <p>
+                Durante mi formación escolar he tenido la oportunidad de
+                realizar diferentes proyectos en los que pude aplicar
+                conocimientos de varias materias.
+            </p>
+
+            <div class="proyecto">
+                <h2>AI-Derm</h2>
+
+                <p>
+                    AI-Derm es un proyecto relacionado con la tecnología y la
+                    salud. La idea consiste en desarrollar una aplicación web
+                    que permita registrar información de pacientes y utilizar
+                    inteligencia artificial para realizar un análisis preliminar
+                    de imágenes de lunares o lesiones de la piel. El proyecto
+                    busca combinar diferentes áreas como la informática, el
+                    desarrollo web y la inteligencia artificial.
+                </p>
+
+                <p>
+                    Para su desarrollo se pueden utilizar tecnologías como
+                    HTML, CSS, JavaScript y PHP. Uno de los objetivos principales
+                    del proyecto es demostrar cómo la tecnología puede utilizarse
+                    para facilitar determinados procesos y ayudar a organizar
+                    información.
+                </p>
+
+                <p>
+                    Este proyecto también me permitió comprender que desarrollar
+                    una aplicación no consiste solamente en programar, sino que
+                    primero es necesario identificar un problema, pensar en una
+                    solución, investigar y luego planificar cómo llevar esa idea
+                    a la práctica.
+                </p>
+            </div>
+
+            <div class="proyecto">
+                <h2>Ojo Urbano</h2>
+
+                <p>
+                    Ojo Urbano es un proyecto tecnológico pensado para facilitar
+                    el reporte de diferentes problemas que pueden ocurrir en
+                    una ciudad. La plataforma permite que los ciudadanos puedan
+                    seleccionar diferentes tipos de incidentes y señalar su
+                    ubicación. Algunos ejemplos son baches, zonas de riesgo,
+                    raudales, entre otros.
+                </p>
+
+                <p>
+                    Una de las características principales del proyecto es la
+                    utilización de un mapa, donde se puede indicar el lugar en
+                    el que ocurre el problema. La finalidad es que la tecnología
+                    pueda ayudar a organizar los reclamos de los ciudadanos y
+                    facilitar la identificación de los problemas existentes.
+                </p>
+
+                <p>
+                    Este proyecto fue especialmente importante para mí porque
+                    permitió trabajar en equipo, investigar un problema real
+                    y desarrollar una propuesta tecnológica para intentar
+                    solucionarlo.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="cuadro" id="contacto">
+
+            <h1 class="titulo">Contacto</h1>
+
+            <p>
+                Si deseas comunicarte conmigo, puedes encontrarme a través
+                de los medios que aparecen a continuación.
+            </p>
+
+            <div class="datos-contacto">
+                <p>
+                    <strong>Correo electrónico:</strong>
+                    <a href="mailto:anto.magri17@gmail.com">
+                        anto.magri17@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Institución:</strong>
+                    Colegio Privado Bautista de Encarnación
+                </p>
+
+                <a class="boton"
+                   href="https://github.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visitar GitHub ↗
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="pie-pagina">
+
+        <h2>AM ♡</h2>
+
+        <p>Antonella Magri © 2026</p>
+
+        <div class="redes">
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer">Instagram</a>
+
+            <a href="https://github.com/"
+               target="_blank"
+               rel="noopener noreferrer">GitHub</a>
+
+            <a href="mailto:anto.magri17@gmail.com">Correo</a>
+        </div>
+
+        <p class="creditos">
+            Imágenes utilizadas: inicio.png y sobremi.png.
+        </p>
+
+        <p class="creditos">
+            Portafolio personal · 1.º Año B.T.I.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
